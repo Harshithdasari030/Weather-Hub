@@ -1,0 +1,804 @@
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #f093fb;
+    --success-color: #4ade80;
+    --warning-color: #f59e0b;
+    --danger-color: #ef4444;
+    --dark-bg: #0f172a;
+    --light-bg: #1e293b;
+    --card-bg: #1a2847;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --border-color: #334155;
+    --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
+    overflow-x: hidden;
+    position: relative;
+    line-height: 1.6;
+}
+
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.gradient-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 25%, #334155 50%, #1a2847 75%, #0f172a 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.animated-shapes {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: blur(40px);
+    opacity: 0.4;
+}
+
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    animation: float 20s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    top: -10%;
+    left: 10%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 250px;
+    height: 250px;
+    top: 50%;
+    right: 10%;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    animation-delay: 5s;
+}
+
+.shape-3 {
+    width: 200px;
+    height: 200px;
+    bottom: 10%;
+    left: 50%;
+    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    animation-delay: 10s;
+}
+
+.shape-4 {
+    width: 280px;
+    height: 280px;
+    top: 20%;
+    right: 30%;
+    background: linear-gradient(135deg, #43e97b, #38f9d7);
+    animation-delay: 15s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px);
+    }
+    25% {
+        transform: translateY(-30px) translateX(20px);
+    }
+    50% {
+        transform: translateY(-60px) translateX(-20px);
+    }
+    75% {
+        transform: translateY(-30px) translateX(30px);
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    text-align: center;
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    animation: slideInDown 0.8s ease;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+    letter-spacing: 2px;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.search-section {
+    margin-bottom: 40px;
+    position: relative;
+    animation: slideInUp 0.8s ease 0.1s both;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+    background: rgba(26, 40, 71, 0.6);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+}
+
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 1rem;
+    padding: 10px 15px;
+    transition: var(--transition);
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-input:focus {
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 8px;
+}
+
+.search-btn {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.search-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+}
+
+.search-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-top: none;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+    margin-top: -1px;
+    backdrop-filter: blur(10px);
+    display: none;
+    box-shadow: var(--shadow-lg);
+    animation: slideDown 0.3s ease;
+}
+
+.suggestions-dropdown.active {
+    display: block;
+}
+
+.suggestion-item {
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    border-bottom: 1px solid rgba(51, 65, 85, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.suggestion-item:hover {
+    background: rgba(102, 126, 234, 0.15);
+    padding-left: 25px;
+}
+
+.suggestion-item i {
+    color: var(--primary-color);
+}
+
+.suggestion-item:last-child {
+    border-bottom: none;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    padding: 40px 20px;
+    animation: fadeIn 0.3s ease;
+}
+
+.loading.active {
+    display: block;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    margin: 0 auto 20px;
+    border: 4px solid rgba(102, 126, 234, 0.3);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.error-message {
+    display: none;
+    padding: 15px 20px;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid var(--danger-color);
+    border-radius: 8px;
+    color: var(--text-primary);
+    margin-top: 15px;
+    animation: slideInUp 0.3s ease;
+}
+
+.error-message.active {
+    display: block;
+}
+
+.weather-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    animation: slideInUp 0.8s ease 0.2s both;
+}
+
+.welcome-card {
+    background: rgba(26, 40, 71, 0.5);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: var(--border-radius);
+    padding: 60px 40px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+}
+
+.welcome-card.hidden {
+    display: none;
+}
+
+.welcome-icon {
+    font-size: 5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.welcome-card h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.welcome-card p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    transition: var(--transition);
+}
+
+.feature:hover {
+    background: rgba(102, 126, 234, 0.2);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+}
+
+.feature i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.main-weather-card {
+    background: linear-gradient(135deg, rgba(26, 40, 71, 0.8), rgba(30, 41, 59, 0.8));
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    border-radius: var(--border-radius);
+    padding: 40px;
+    backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    animation: scaleIn 0.5s ease;
+}
+
+.main-weather-card.hidden {
+    display: none;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.weather-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.city-info h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.city-info p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.weather-icon-main {
+    text-align: center;
+    animation: float 6s ease-in-out infinite;
+}
+
+.weather-icon-main img {
+    width: 120px;
+    height: 120px;
+    filter: drop-shadow(0 8px 20px rgba(102, 126, 234, 0.4));
+    margin-bottom: 10px;
+}
+
+.weather-icon-main p {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    text-transform: capitalize;
+}
+
+.temperature-display {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.temp-main {
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+.temp-unit {
+    font-size: 2rem;
+    margin-left: 10px;
+}
+
+.feels-like {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-top: 10px;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.detail-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(51, 65, 85, 0.3);
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    border-radius: 12px;
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.detail-card:hover {
+    background: rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.5);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.2);
+}
+
+.detail-card i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    min-width: 50px;
+    text-align: center;
+}
+
+.detail-content {
+    flex: 1;
+}
+
+.detail-label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.detail-value {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.sun-times {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.sun-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    transition: var(--transition);
+}
+
+.sunrise {
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.15), rgba(240, 140, 40, 0.15));
+    border-color: rgba(255, 165, 0, 0.3);
+}
+
+.sunrise:hover {
+    background: linear-gradient(135deg, rgba(255, 165, 0, 0.25), rgba(240, 140, 40, 0.25));
+}
+
+.sunset {
+    background: linear-gradient(135deg, rgba(245, 87, 108, 0.15), rgba(240, 144, 251, 0.15));
+    border-color: rgba(245, 87, 108, 0.3);
+}
+
+.sunset:hover {
+    background: linear-gradient(135deg, rgba(245, 87, 108, 0.25), rgba(240, 144, 251, 0.25));
+}
+
+.sun-card i {
+    font-size: 2rem;
+    min-width: 50px;
+    text-align: center;
+}
+
+.sunrise i {
+    color: #ffa500;
+}
+
+.sunset i {
+    color: #f5576c;
+}
+
+.sun-card div p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.sun-card div span {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    display: block;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(102, 126, 234, 0.2);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.footer strong {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header {
+        padding: 30px 20px;
+        margin-bottom: 20px;
+    }
+
+    .search-container {
+        flex-direction: column;
+    }
+
+    .search-btn {
+        width: 100%;
+    }
+
+    .weather-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .city-info h2 {
+        font-size: 1.8rem;
+    }
+
+    .temp-main {
+        font-size: 3rem;
+    }
+
+    .weather-details {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .detail-card {
+        padding: 15px;
+    }
+
+    .detail-card i {
+        font-size: 1.5rem;
+    }
+
+    .detail-label {
+        font-size: 0.8rem;
+    }
+
+    .detail-value {
+        font-size: 1.1rem;
+    }
+
+    .main-weather-card {
+        padding: 25px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    .weather-icon-main img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .temp-main {
+        font-size: 2.5rem;
+    }
+
+    .weather-details {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-card {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .detail-card i {
+        font-size: 1.3rem;
+    }
+
+    .city-info h2 {
+        font-size: 1.5rem;
+    }
+
+    .main-weather-card {
+        padding: 20px;
+    }
+
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    .sun-times {
+        grid-template-columns: 1fr;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-color);
+}

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Hub - Live Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="gradient-bg"></div>
+        <div class="animated-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+            <div class="shape shape-4"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-cloud-sun"></i> Weather Hub</h1>
+            <p>Live weather companion</p>
+        </header>
+
+        <div class="search-section">
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Search city... (e.g., London, New York, Tokyo)"
+                    autocomplete="off"
+                >
+                <button id="searchBtn" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div id="suggestions" class="suggestions-dropdown"></div>
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Fetching weather data...</p>
+            </div>
+            <div id="errorMsg" class="error-message"></div>
+        </div>
+
+        <div class="weather-grid">
+            <!-- Main Weather Card -->
+            <div id="mainWeatherCard" class="main-weather-card hidden">
+                <div class="weather-header">
+                    <div class="city-info">
+                        <h2 id="cityName"></h2>
+                        <p id="countryCode"></p>
+                    </div>
+                    <div class="weather-icon-main">
+                        <img id="weatherIcon" src="" alt="Weather icon">
+                        <p id="weatherDescription"></p>
+                    </div>
+                </div>
+
+                <div class="temperature-display">
+                    <div class="temp-main">
+                        <span id="temperature" class="temp-value"></span>
+                        <span class="temp-unit">°C</span>
+                    </div>
+                    <div class="feels-like">
+                        Feels like <span id="feelsLike"></span>°C
+                    </div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <i class="fas fa-droplet"></i>
+                        <div class="detail-content">
+                            <p class="detail-label">Humidity</p>
+                            <p class="detail-value" id="humidity"></p>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <i class="fas fa-wind"></i>
+                        <div class="detail-content">
+                            <p class="detail-label">Wind Speed</p>
+                            <p class="detail-value" id="windSpeed"></p>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <i class="fas fa-gauge"></i>
+                        <div class="detail-content">
+                            <p class="detail-label">Pressure</p>
+                            <p class="detail-value" id="pressure"></p>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <i class="fas fa-eye"></i>
+                        <div class="detail-content">
+                            <p class="detail-label">Visibility</p>
+                            <p class="detail-value" id="visibility"></p>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <i class="fas fa-cloud"></i>
+                        <div class="detail-content">
+                            <p class="detail-label">Cloudiness</p>
+                            <p class="detail-value" id="cloudiness"></p>
+                        </div>
+                    </div>
+
+                    <div class="detail-card">
+                        <i class="fas fa-sun"></i>
+                        <div class="detail-content">
+                            <p class="detail-label">UV Index</p>
+                            <p class="detail-value" id="uvIndex"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sun-times">
+                    <div class="sun-card sunrise">
+                        <i class="fas fa-sunrise"></i>
+                        <div>
+                            <p>Sunrise</p>
+                            <span id="sunrise"></span>
+                        </div>
+                    </div>
+                    <div class="sun-card sunset">
+                        <i class="fas fa-sunset"></i>
+                        <div>
+                            <p>Sunset</p>
+                            <span id="sunset"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder/Welcome Card -->
+            <div id="welcomeCard" class="welcome-card">
+                <div class="welcome-icon">
+                    <i class="fas fa-magnifying-glass-location"></i>
+                </div>
+                <h3>Welcome to Weather Hub</h3>
+                <p>Search for any city and get real-time weather information</p>
+                <div class="feature-list">
+                    <div class="feature">
+                        <i class="fas fa-thermometer"></i>
+                        <span>Real-time Temperature</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-droplet"></i>
+                        <span>Humidity Data</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-wind"></i>
+                        <span>Wind Information</span>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-cloud"></i>
+                        <span>Weather Details</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p> Weather data updated in real-time</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

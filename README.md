@@ -69,6 +69,11 @@ A beautiful, responsive weather application powered by OpenWeatherMap API with a
 
    Then navigate to `http://localhost:8000` in your browser
 
+5. **AdSense ads.txt support**:
+   - Your `ads.txt` file is already present at the site root (`ads.txt`)
+   - Google AdSense discovers it at `https://your-domain.com/ads.txt`
+   - No HTML link is required; it must simply be accessible from the root URL
+
 ## 📋 How to Use
 
 1. **Search for a City**:
